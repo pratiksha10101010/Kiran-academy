@@ -1,0 +1,37 @@
+package com.Bank;
+
+public class BankSystem extends Thread {
+    private static double balance = 1000; // Each instance has its own balance
+
+    // Deposit
+    public void run() {
+        synchronized (this) {
+            deposite(200);
+            withdraw(500);
+        }
+    }
+
+    private void deposite(int amount) {
+        System.out.println("Balance is " + " " + balance);
+        balance = balance + amount;
+        System.out.println("after depositing");
+        System.out.println("Remaining Balance " + " " + balance);
+        System.out.println("THANK YOU......");
+    }
+
+    // Withdraw
+   synchronized private static void withdraw(int amount) {
+        System.out.println(Thread.currentThread().getName());
+        if (balance > 100) {
+            System.out.println("after withdrawing");
+            balance = balance - amount;
+            System.out.println("Remaining Balance " + " " + balance);
+            System.out.println("THANK YOU......");
+        }
+    }
+
+    // GetBalance
+    double getBalance() {
+        return balance;
+    }
+}
