@@ -1,0 +1,27 @@
+package com.li;
+
+public class Book extends LibraryItem{
+	
+	private String genre;
+	private int noOfpages;
+
+	public Book(String autor, String title, String location,String genre,int noOfpages) {
+		super(autor,title,location);
+		this.genre = genre;
+		this.noOfpages = noOfpages;
+		
+	}
+	@Override
+	public void displayInfo() {
+		System.out.println("*****************************************************");
+		System.out.println("author name is"+ " "+autor);
+		System.out.println("title name is"+ " "+title);
+		System.out.println("genre name is"+ " "+genre);
+		System.out.println("noofpages name is"+ " "+noOfpages);
+		
+		
+	}
+		
+
+	
+}
