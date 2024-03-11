@@ -1,0 +1,23 @@
+package com.program;
+
+import java.util.Scanner;
+
+public class Even_odd_Sum {
+	public static void main(String arg[]) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number 1");
+		int number1 = sc.nextInt();
+		System.out.println("Enter number 2");
+		int number2 = sc.nextInt();
+		int sum  = 0;
+		
+		if (number1 % 2 !=0 && number2 % 2 !=0 ||number1 % 2 ==0 && number2 % 2 ==0) {
+			sum = number1 + number2;
+			System.out.println(sum);
+		}
+		else {
+			System.out.println("Invalid numbers");
+		}
+	}
+
+}
