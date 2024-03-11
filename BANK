@@ -1,0 +1,107 @@
+****************************************************************BANK TASK************************************************************************************
+
+
+package com.polymorphisms;
+
+public class Account {
+	
+	private int acc_no;
+	private int balance;
+	private String name;
+	
+	public Account(int acc_no,int balance,String name) {
+		this.acc_no = acc_no;
+		this.balance = balance;
+		this.name = name;
+	}
+	
+	void Withdraw(int amt) {
+		if(amt<=balance) {
+		balance = balance - amt;
+		System.out.println("Withdraw balance"+" "+balance+" "+"remaining balance"+" "+balance);
+		}
+	}
+	
+	void diposite(int amt) {
+		
+		balance = balance+amt;
+		//System.out.println("add balance");
+	}
+	void DisplayInforamtion() {
+		System.out.println("Name"+name);
+		System.out.println("Name"+balance);
+		System.out.println("Name"+acc_no);
+		
+	}
+}
+package com.polymorphisms;
+
+public class CurrentAccount extends Account{
+	private double limit;
+
+	public CurrentAccount(int acc_no, int balance, String name,double limit) {
+		super(acc_no, balance, name);
+		// TODO Auto-generated constructor stub
+		this.limit = limit;
+	}
+	public void withdraw(int amt) {
+//		if(amt <= balance+limit) {
+//			super.Withdraw(amt);
+//		}
+//		else {
+//			System.out.println("overdraf");
+//		}
+	}
+	
+	public void DisplayInforamtion() {
+		super.DisplayInforamtion();
+		System.out.println("overdraf limit"+limit);
+	}
+	
+	
+
+}
+package com.polymorphisms;
+
+public class SavingAccount extends Account{
+	private int withdrawPerMonth;
+	private int withdrwal;
+	
+	public SavingAccount(int acc_no,int balance, String name, int withdrawPerMonth,int withdrwal) {
+		super(acc_no, balance, name);
+		this.withdrawPerMonth = withdrawPerMonth;
+		this. withdrwal = 0;
+	}
+
+	void withdraw(int amt) {
+		if( withdrwal<withdrawPerMonth) {
+			super.Withdraw(amt);
+			withdrwal++;
+			
+		}
+		else {
+			System.out.println("Exceeding the limit");
+		}
+	}
+	public void DisplayInforamtion() {
+		super.DisplayInforamtion();
+		System.out.println("max withdrawal per month"+" "+withdrawPerMonth);
+	}
+	
+
+}
+package com.polymorphisms;
+
+public class BankApp {
+	public static void main(String args[]) {
+		SavingAccount sa = new SavingAccount(123,10000,"Pratiksha",5000,2);
+		sa.diposite(2000);
+		sa.withdraw(5000);
+		//sa.withdraw(5000);
+		
+		CurrentAccount ca = new CurrentAccount(1234, 20000, "Satpute", 1000);
+		ca.diposite(1000);
+		ca.withdraw(4000);
+	}
+
+}
