@@ -1,0 +1,25 @@
+package com.cricketall;
+
+public class Player {
+	
+	int age;
+	String name;
+	int J_no;
+	String Country_name;
+	Player(){
+		
+	}
+	public Player(int age, String name, int j_no, String country_name) {
+		super();
+		this.age = age;
+		this.name = name;
+		J_no = j_no;
+		Country_name = country_name;
+	}
+	@Override
+	public String toString() {
+		return "Player [age=" + age + ", name=" + name + ", J_no=" + J_no + ", Country_name=" + Country_name + "]";
+	}
+	
+
+}
